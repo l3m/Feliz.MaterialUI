@@ -29,7 +29,7 @@ module HtmlHelpers =
 type Html =
 
   /// Represents a document section that contains interactive controls for submitting information to a web server.
-  static member inline form props = createElement form props
+  static member inline form props = createElement "form" props
 
   /// Represents a document section that contains interactive controls for submitting information to a web server.
-  static member inline form children: #seq<ReactElement> = createElement form Feliz.form.children (children :> ReactElement seq)
+  static member inline form children: #seq<ReactElement> = createElement "form" Feliz.form.children (children :> ReactElement seq)
