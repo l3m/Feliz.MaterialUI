@@ -15,7 +15,9 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Feliz.Generator", "src\Feli
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Feliz.Generator.MaterialUI", "src\Feliz.Generator.MaterialUI\Feliz.Generator.MaterialUI.fsproj", "{DA908485-4464-4710-8E98-5A40F34B7743}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Feliz.MaterialUI.BundleSizeTest", "src\Feliz.MaterialUI.BundleSizeTest\Feliz.MaterialUI.BundleSizeTest.fsproj", "{2CE0E488-E3E3-488E-8E83-68AFCBD2DC06}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Feliz.MaterialUI.BundleSizeTest", "src\Feliz.MaterialUI.BundleSizeTest\Feliz.MaterialUI.BundleSizeTest.fsproj", "{2CE0E488-E3E3-488E-8E83-68AFCBD2DC06}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Feliz.Generator.CoreDom", "src\Feliz.Generator.CoreDom\Feliz.Generator.CoreDom.fsproj", "{C25DE2D3-6F63-4A69-B7E3-E7F4081C14DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{2CE0E488-E3E3-488E-8E83-68AFCBD2DC06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CE0E488-E3E3-488E-8E83-68AFCBD2DC06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CE0E488-E3E3-488E-8E83-68AFCBD2DC06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C25DE2D3-6F63-4A69-B7E3-E7F4081C14DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C25DE2D3-6F63-4A69-B7E3-E7F4081C14DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C25DE2D3-6F63-4A69-B7E3-E7F4081C14DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C25DE2D3-6F63-4A69-B7E3-E7F4081C14DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
