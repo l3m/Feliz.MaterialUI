@@ -614,6 +614,9 @@ let parseProp componentMethodName (row: ComponentApiPage.Props.Row) (rowHtml: Ht
     | _, _, "any" ->
         [RegularPropOverload.create "(value: 'a)" "value"]
 
+    | _, _, "func" ->
+        [RegularPropOverload.create "(func: unit -> 'a)" "func"]
+
     | _ when isProbablyEnumProp ->
         []
 

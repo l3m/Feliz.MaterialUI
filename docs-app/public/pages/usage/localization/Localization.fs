@@ -21,7 +21,7 @@ let private sample =
         themeProvider.children [
           Mui.container [
             container.maxWidth.xs
-            container.children [
+            prop.children [
               Mui.tablePagination [
                 tablePagination.count 20
                 tablePagination.rowsPerPage 10

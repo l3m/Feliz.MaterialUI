@@ -114,7 +114,7 @@ let app = React.functionComponent(fun (model, dispatch) ->
   Mui.container [
     container.component' "main"
     container.maxWidth.xs
-    container.children [
+    prop.children [
       Html.div [
         prop.className classes.paper
         prop.children [
@@ -191,7 +191,7 @@ let app = React.functionComponent(fun (model, dispatch) ->
                 )
               ]
               Mui.button [
-                button.type'.submit
+                button.variant.outlined
                 button.fullWidth true
                 button.variant.contained
                 button.color.primary
