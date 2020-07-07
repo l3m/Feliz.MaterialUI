@@ -37,7 +37,7 @@ let parseClassRule (row: ComponentApiPage.Css.Row) (rowHtml: HtmlNode) =
 
   {
     DocLines = markdownDocLines
-    MethodName = 
+    MethodName =
       row.``Rule name``
       |> kebabCaseToCamelCase
       |> trimStart '@'
@@ -56,7 +56,7 @@ let parseProp componentMethodName (row: ComponentApiPage.Props.Row) (rowHtml: Ht
     else
       rowHtml.CssSelect("td").[3].Elements()
       |> docElementsToMarkdownLines
-  
+
   let propDocType = row.Type.Trim()
 
 
@@ -614,6 +614,9 @@ let parseProp componentMethodName (row: ComponentApiPage.Props.Row) (rowHtml: Ht
     | _, _, "any" ->
         [RegularPropOverload.create "(value: 'a)" "value"]
 
+    | _, _, "func" ->
+        [RegularPropOverload.create "(func: unit -> 'a)" "func"]
+
     | _ when isProbablyEnumProp ->
         []
 
@@ -670,7 +673,7 @@ let parseProp componentMethodName (row: ComponentApiPage.Props.Row) (rowHtml: Ht
         let enumValueExpressions =
           propDocType.Split("|")
           |> Array.toList
-          |> List.choose (fun s -> 
+          |> List.choose (fun s ->
               let value = s.Trim()
               if value.StartsWith "'" && value.EndsWith "'" then
                 // String
@@ -684,7 +687,7 @@ let parseProp componentMethodName (row: ComponentApiPage.Props.Row) (rowHtml: Ht
         let overloads =
           enumValueExpressions
           |> List.map (fun v ->
-              let methodName = 
+              let methodName =
                 v.Trim('"')
                 |> kebabCaseToCamelCase
                 |> prefixUnderscoreToNumbers
@@ -747,7 +750,7 @@ let parseComponent (htmlPathOrUrl: string) =
       |> List.skipWhile (fun n -> n.Name() <> "h2" || n.InnerText() <> "Notes")
       |> List.trySkip 1
       |> List.takeWhile (fun n -> n.Name() = "p")
-    
+
     let markdownDocLines =
       noteNodes1 @ noteNodes2
       |> docElementsToMarkdownLines
@@ -783,9 +786,9 @@ let parseComponent (htmlPathOrUrl: string) =
       )
 
     let addChildrenOverloadIfSupported (comp: Component) =
-      let hasReactElementSeqChildren = 
+      let hasReactElementSeqChildren =
         comp.Props
-        |> List.exists (fun p -> 
+        |> List.exists (fun p ->
             p.MethodName = "children"
             && p.RegularOverloads |> List.exists (fun o -> o.ParamsCode = "(elements: ReactElement seq)")
         )
@@ -820,7 +823,7 @@ let parseComponent (htmlPathOrUrl: string) =
           .Groups.[1].Value
       match compMethodName, inheritFrom with
       | _, (null | "") -> id
-      | ("collapse" | "fade" | "grow" | "slide" | "zoom"), "Transition" -> 
+      | ("collapse" | "fade" | "grow" | "slide" | "zoom"), "Transition" ->
           id  // The Transition component is from an external library
       | _, ("native component" | "native element") ->
           id  // Native DOM inheritance not currently supported
@@ -837,7 +840,7 @@ let parseComponent (htmlPathOrUrl: string) =
         |> setInheritance
       ClassRules =
         let rowsAndHtml =
-          try 
+          try
             page.Tables.CSS.Rows
             |> Array.mapi (fun i r ->
                 r, page.Tables.CSS.Html.CssSelect("tbody > tr").[i]
