@@ -781,6 +781,11 @@ let parseComponent (htmlPathOrUrl: string) =
           [ComponentOverload.create "(name: string)" "[ prop.children (Html.text name) ]"]
       | "listItemText" ->
           [ComponentOverload.create "(primary: string)" "[ listItemText.primary primary ]"]
+      | "container" ->
+          [
+            ComponentOverload.create "(element: ReactElement)" "[ prop.children element ]"
+            ComponentOverload.create "(element: ReactElement seq)" "[ prop.children element ]"
+          ]
       | _ ->
           []
 
